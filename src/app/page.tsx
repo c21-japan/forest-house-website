@@ -1,10 +1,12 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
-import Services from '@/components/sections/Services';
-import About from '@/components/sections/About';
-import Testimonials from '@/components/sections/Testimonials';
-import CTA from '@/components/sections/CTA';
+import ReformAdvantage from '@/components/sections/ReformAdvantage';
+import FlyerMansionSpecial from '@/components/sections/FlyerMansionSpecial';
+import AreaCoverage from '@/components/sections/AreaCoverage';
+import BuyerTestimonials from '@/components/sections/BuyerTestimonials';
+import UltimateOffer from '@/components/sections/UltimateOffer';
+import FinalAction from '@/components/sections/FinalAction';
 
 export default function Home() {
   return (
@@ -12,10 +14,12 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Testimonials />
-        <CTA />
+        <ReformAdvantage />
+        <FlyerMansionSpecial />
+        <AreaCoverage />
+        <BuyerTestimonials />
+        <UltimateOffer />
+        <FinalAction />
       </main>
       <Footer />
     </div>

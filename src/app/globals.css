@@ -93,3 +93,173 @@ body {
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out;
 }
+
+/* チラシ連動型のカスタムスタイル */
+:root {
+  --forest-green: #2D5F3F;
+  --trust-blue: #1E3A8A;
+  --action-orange: #FB923C;
+  --profit-gold: #FCD34D;
+  --alert-red: #DC2626;
+}
+
+/* チラシ連動バナー */
+.flyer-banner {
+  background: linear-gradient(90deg, var(--action-orange), var(--profit-gold));
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: pulse 2s infinite;
+}
+
+/* リフォーム強調デザイン */
+.reform-advantage {
+  background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+  position: relative;
+}
+
+.reform-advantage::before {
+  content: '🔨';
+  position: absolute;
+  font-size: 200px;
+  opacity: 0.1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* 実績カードのアニメーション */
+.result-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.profit {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--profit-gold);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  animation: bounce 1s infinite;
+}
+
+/* CTAボタンの心理効果 */
+.mega-cta-final {
+  background: linear-gradient(135deg, var(--action-orange) 0%, var(--alert-red) 100%);
+  color: white;
+  padding: 25px 50px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 15px 35px rgba(239, 68, 68, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mega-cta-final::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  to { left: 100%; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* カウントダウンタイマー */
+.timer span {
+  animation: pulse 1s infinite;
+}
+
+/* ホバーエフェクト */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* グラデーションテキスト */
+.gradient-text {
+  background: linear-gradient(135deg, var(--action-orange), var(--alert-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ストロングシャドウ */
+.shadow-strong {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* モバイル最適化 */
+@media (max-width: 768px) {
+  .flyer-banner {
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  .area-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .promise-card {
+    margin-bottom: 20px;
+  }
+  
+  .mega-cta-final {
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+  }
+  
+  .timer {
+    font-size: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .timer > div {
+    margin: 0.25rem;
+  }
+}
