@@ -122,12 +122,12 @@ function updateMansionResults(data: unknown) {
 export function initAreaTabs() {
   const tabs = document.querySelectorAll('.area-tabs .tab');
   tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-      const area = (this as HTMLElement).dataset.area;
+    tab.addEventListener('click', (event) => {
+      const area = (event.currentTarget as HTMLElement).dataset.area;
       
       // タブの切り替え
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      this.classList.add('active');
+      (event.currentTarget as HTMLElement).classList.add('active');
       
       // コンテンツの切り替え
       document.querySelectorAll('.area-content').forEach(content => {
