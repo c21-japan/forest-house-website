@@ -34,6 +34,26 @@
   --error: #ef4444;
   --info: #3b82f6;
   
+  /* 新しいカラーシステム */
+  --color-primary: #0A5F4A;
+  --color-primary-dark: #064E3B;
+  --color-primary-light: #ECFDF5;
+  --color-secondary: #1E40AF;
+  --color-secondary-light: #F0F9FF;
+  --color-accent: #EA580C;
+  --color-accent-hover: #DC2626;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4B5563;
+  --color-text-light: #9CA3AF;
+  --color-text-white: #FFFFFF;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F9FAFB;
+  --color-bg-tertiary: #F3F4F6;
+  --color-border: #E5E7EB;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  
   /* グラデーション */
   --gradient-primary: linear-gradient(135deg, #059669 0%, #10b981 100%);
   --gradient-warm: linear-gradient(135deg, #fef7f0 0%, #fed7aa 100%);

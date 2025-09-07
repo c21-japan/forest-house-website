@@ -1,0 +1,286 @@
+.areaAccordion {
+  padding: 4rem 0;
+  background: white;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+}
+
+.accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordionItem {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordionItem:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.accordionHeader {
+  width: 100%;
+  padding: 1.5rem;
+  background: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.accordionHeader:hover {
+  background: var(--color-bg-secondary);
+}
+
+.accordionHeader.active {
+  background: var(--color-primary-light);
+}
+
+.areaInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.areaIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.areaDetails {
+  flex: 1;
+}
+
+.areaName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.areaDescription {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.areaStats {
+  display: flex;
+  gap: 1.5rem;
+  margin-right: 1rem;
+}
+
+.stat {
+  text-align: center;
+  min-width: 80px;
+}
+
+.statValue {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin-top: 0.25rem;
+}
+
+.accordionIcon {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: var(--color-bg-secondary);
+}
+
+.accordionContent.active {
+  max-height: 500px;
+}
+
+.contentInner {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.features h4,
+.marketInfo h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features li {
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.marketStats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.marketStat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.marketLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.marketValue {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.disclaimer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.disclaimer p {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin-bottom: 0.25rem;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .areaAccordion {
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .accordionHeader {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .areaInfo {
+    width: 100%;
+  }
+  
+  .areaStats {
+    width: 100%;
+    justify-content: space-around;
+    margin-right: 0;
+  }
+  
+  .stat {
+    min-width: auto;
+  }
+  
+  .accordionIcon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .contentInner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .marketStats {
+    gap: 0.75rem;
+  }
+  
+  .marketStat {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .areaStats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+  }
+  
+  .statValue {
+    font-size: 1rem;
+  }
+  
+  .statLabel {
+    font-size: 0.75rem;
+    margin-top: 0;
+  }
+}

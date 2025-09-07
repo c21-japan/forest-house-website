@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import FlyerScript from "@/components/FlyerScript";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${notoSansJP.variable} ${notoSerifJP.variable}`}>
         {children}
+        <FloatingCTA />
         <FlyerScript />
       </body>
     </html>

@@ -1,0 +1,169 @@
+.services {
+  padding: 4rem 0;
+  background: var(--color-bg-secondary);
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.serviceCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.serviceIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.serviceTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.serviceDescription {
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.serviceFeatures {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.featureItem {
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+}
+
+.serviceButton {
+  width: 100%;
+  justify-content: center;
+}
+
+.pricing {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pricingTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.pricingTable {
+  margin-bottom: 1rem;
+}
+
+.pricingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pricingRow:last-child {
+  border-bottom: none;
+}
+
+.pricingItem {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.pricingPrice {
+  text-align: right;
+  color: var(--color-text-secondary);
+}
+
+.pricingNote {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .services {
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .serviceGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .serviceCard {
+    padding: 1.5rem;
+  }
+  
+  .pricing {
+    padding: 1.5rem;
+  }
+  
+  .pricingRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .pricingPrice {
+    text-align: left;
+  }
+}
