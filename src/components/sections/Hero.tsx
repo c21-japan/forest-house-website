@@ -3,70 +3,79 @@ import { Button } from '@/components/ui/Button';
 
 const Hero = () => {
   return (
-    <section className="hero-flyer-connection relative bg-gradient-to-br from-forest-50 to-warm-50">
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50 overflow-hidden">
       {/* チラシ連動メッセージ */}
-      <div className="flyer-banner bg-gradient-to-r from-orange-500 to-yellow-400 text-white py-4 text-center font-bold text-lg sticky top-0 z-50 animate-pulse">
+      <div className="flyer-banner">
         📮 このチラシが入っていたマンションの皆様へ
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="text-center">
+      <div className="container py-20 lg:py-32">
+        <div className="text-center space-y-12">
           {/* メインメッセージ */}
-          <h1 className="main-message text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8">
-            <span className="block text-2xl lg:text-3xl text-gray-600 mb-4">あなたのマンションが</span>
-            <span className="block text-5xl lg:text-7xl text-forest-500 mb-4">今、一番高く売れる理由</span>
-            <span className="block text-2xl lg:text-3xl text-gray-700">があります</span>
-          </h1>
+          <div className="space-y-6 animate-fade-in-up">
+            <h1 className="text-balance">
+              <span className="block text-2xl lg:text-3xl text-muted mb-4 font-medium">
+                あなたのマンションが
+              </span>
+              <span className="block gradient-text text-5xl lg:text-7xl font-extrabold mb-4">
+                今、一番高く売れる理由
+              </span>
+              <span className="block text-2xl lg:text-3xl text-foreground font-semibold">
+                があります
+              </span>
+            </h1>
+          </div>
 
           {/* 独自の強みを即座にアピール */}
-          <div className="unique-strengths flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
-            <div className="strength-badge bg-white rounded-2xl p-6 shadow-lg border-2 border-forest-200 text-center">
-              <span className="icon text-4xl block mb-2">🔨</span>
-              <span className="text font-semibold text-gray-800">自社職人による<br />リフォーム済み物件</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="card hover-lift p-6 text-center group">
+              <div className="text-5xl mb-4 group-hover:animate-float">🔨</div>
+              <h3 className="font-semibold text-foreground mb-2">自社職人による</h3>
+              <p className="text-muted">リフォーム済み物件</p>
             </div>
-            <div className="strength-badge bg-white rounded-2xl p-6 shadow-lg border-2 border-forest-200 text-center">
-              <span className="icon text-4xl block mb-2">💰</span>
-              <span className="text font-semibold text-gray-800">購入者の<br />リフォーム代不要</span>
+            <div className="card hover-lift p-6 text-center group">
+              <div className="text-5xl mb-4 group-hover:animate-float">💰</div>
+              <h3 className="font-semibold text-foreground mb-2">購入者の</h3>
+              <p className="text-muted">リフォーム代不要</p>
             </div>
-            <div className="strength-badge bg-white rounded-2xl p-6 shadow-lg border-2 border-forest-200 text-center">
-              <span className="icon text-4xl block mb-2">⚡</span>
-              <span className="text font-semibold text-gray-800">だから<br />即決率92%</span>
+            <div className="card hover-lift p-6 text-center group">
+              <div className="text-5xl mb-4 group-hover:animate-float">⚡</div>
+              <h3 className="font-semibold text-foreground mb-2">だから</h3>
+              <p className="text-muted">即決率92%</p>
             </div>
           </div>
 
           {/* インパクトのある実績 */}
-          <div className="impact-result bg-gradient-to-r from-forest-100 to-warm-100 rounded-3xl p-8 mb-12 max-w-4xl mx-auto">
-            <p className="result-text text-2xl lg:text-3xl font-bold text-gray-800">
-              同じマンションの〇〇号室
-              <span className="price-highlight text-4xl lg:text-5xl text-orange-500 block mt-2">
+          <div className="card-elevated bg-gradient-to-r from-emerald-50 to-teal-50 p-8 max-w-4xl mx-auto animate-scale-in" style={{ animationDelay: '0.4s' }}>
+            <div className="space-y-4">
+              <p className="text-xl lg:text-2xl font-semibold text-foreground">
+                同じマンションの〇〇号室
+              </p>
+              <p className="gradient-text-warm text-4xl lg:text-6xl font-extrabold">
                 相場より680万円高く
-              </span>
-              <span className="text-forest-600">売却成功！</span>
-            </p>
+              </p>
+              <p className="text-primary text-2xl lg:text-3xl font-bold">
+                売却成功！
+              </p>
+            </div>
           </div>
 
           {/* 2段階CTA */}
-          <div className="cta-container space-y-4 mb-8">
-            <Button 
-              variant="primary" 
-              size="lg" 
-              className="mega-cta text-xl px-12 py-6 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300"
-            >
-              <span className="block">今すぐ無料査定を申し込む</span>
-              <span className="block text-sm font-normal opacity-90">このマンション限定・特別査定実施中</span>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="text-lg px-8 py-4 border-2 border-forest-500 text-forest-500 hover:bg-forest-500 hover:text-white"
-            >
+          <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+            <button className="mega-cta-final w-full max-w-md mx-auto block">
+              <span className="block font-bold">今すぐ無料査定を申し込む</span>
+              <span className="block text-sm font-normal opacity-90 mt-1">
+                このマンション限定・特別査定実施中
+              </span>
+            </button>
+            <button className="btn btn-outline btn-lg">
               まずは同じマンションの売却事例を見る
-            </Button>
+            </button>
           </div>
 
           {/* 対応エリア表示 */}
-          <div className="area-coverage">
-            <p className="text-lg text-gray-600 font-semibold">
+          <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <p className="text-lg text-muted font-medium">
               奈良県21市町・大阪府35市対応
             </p>
           </div>
@@ -75,8 +84,9 @@ const Hero = () => {
 
       {/* 背景装飾 */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-forest-100 rounded-full opacity-30"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-warm-200 rounded-full opacity-30"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-100 rounded-full opacity-20 animate-float"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-teal-100 rounded-full opacity-20 animate-float" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-full opacity-10 animate-float" style={{ animationDelay: '3s' }}></div>
       </div>
     </section>
   );

@@ -2,20 +2,21 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive';
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', children, ...props }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
+    const baseStyles = 'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden';
     
     const variants = {
-      primary: 'bg-forest-500 text-white hover:bg-forest-600 focus:ring-forest-500 shadow-soft hover:shadow-medium',
-      secondary: 'bg-trust-500 text-white hover:bg-trust-600 focus:ring-trust-500 shadow-soft hover:shadow-medium',
-      outline: 'border-2 border-forest-500 text-forest-500 hover:bg-forest-500 hover:text-white focus:ring-forest-500',
-      ghost: 'text-forest-500 hover:bg-forest-50 focus:ring-forest-500',
+      primary: 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 focus:ring-emerald-500 shadow-lg hover:shadow-xl hover:-translate-y-0.5',
+      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-secondary',
+      outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground focus:ring-primary',
+      ghost: 'text-primary hover:bg-accent hover:text-accent-foreground focus:ring-primary',
+      destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90 focus:ring-destructive',
     };
     
     const sizes = {
