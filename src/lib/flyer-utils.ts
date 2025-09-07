@@ -1,13 +1,5 @@
 // チラシ連動JavaScript機能
 
-// グローバル型拡張
-declare global {
-  interface Window {
-    submitExitOffer: () => void;
-    closeExitPopup: () => void;
-  }
-}
-
 // 型付けの土台
 export type Primitive = string | number | boolean | null | undefined;
 
@@ -201,51 +193,74 @@ export function initCounterAnimations() {
 
 // 離脱防止
 let exitShown = false;
+
+// ポップアップ管理クラス
+class ExitPopupManager {
+  private popup: HTMLElement | null = null;
+
+  show() {
+    if (this.popup) return; // 既に表示されている場合は何もしない
+
+    this.popup = document.createElement('div');
+    this.popup.className = 'exit-popup fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+    this.popup.innerHTML = `
+      <div class="popup-content bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">ちょっと待って！</h2>
+        <p class="text-lg text-gray-700 mb-6">今なら査定額10%UPクーポン進呈</p>
+        <input type="tel" placeholder="電話番号を入力" class="w-full p-3 border border-gray-300 rounded-lg mb-4">
+        <button id="submit-exit-offer" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors">
+          クーポンを受け取る
+        </button>
+        <button id="close-exit-popup" class="mt-2 text-gray-500 hover:text-gray-700">
+          閉じる
+        </button>
+      </div>
+    `;
+    
+    document.body.appendChild(this.popup);
+
+    // イベントリスナーを追加
+    const submitBtn = this.popup.querySelector('#submit-exit-offer');
+    const closeBtn = this.popup.querySelector('#close-exit-popup');
+    
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => this.submitOffer());
+    }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.close());
+    }
+  }
+
+  close() {
+    if (this.popup) {
+      this.popup.remove();
+      this.popup = null;
+    }
+  }
+
+  private submitOffer() {
+    const phoneInput = this.popup?.querySelector('input[type="tel"]') as HTMLInputElement;
+    if (phoneInput && phoneInput.value) {
+      // 電話番号を保存してフォーム送信
+      localStorage.setItem('exitOfferPhone', phoneInput.value);
+      this.close();
+      // 実際のフォーム送信処理をここに追加
+      console.log('Exit offer submitted:', phoneInput.value);
+    }
+  }
+}
+
+// グローバルインスタンス
+const exitPopupManager = new ExitPopupManager();
+
 export function initExitPrevention() {
   document.addEventListener('mouseleave', (e) => {
     if (e.clientY <= 0 && !exitShown) {
-      showExitPopup();
+      exitPopupManager.show();
       exitShown = true;
     }
   });
 }
-
-function showExitPopup() {
-  const popup = document.createElement('div');
-  popup.className = 'exit-popup fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-  popup.innerHTML = `
-    <div class="popup-content bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
-      <h2 class="text-2xl font-bold text-gray-900 mb-4">ちょっと待って！</h2>
-      <p class="text-lg text-gray-700 mb-6">今なら査定額10%UPクーポン進呈</p>
-      <input type="tel" placeholder="電話番号を入力" class="w-full p-3 border border-gray-300 rounded-lg mb-4">
-      <button onclick="submitExitOffer()" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors">
-        クーポンを受け取る
-      </button>
-      <button onclick="closeExitPopup()" class="mt-2 text-gray-500 hover:text-gray-700">
-        閉じる
-      </button>
-    </div>
-  `;
-  document.body.appendChild(popup);
-}
-
-// グローバル関数として定義
-window.submitExitOffer = function() {
-  const phoneInput = document.querySelector('.exit-popup input[type="tel"]') as HTMLInputElement;
-  if (phoneInput && phoneInput.value) {
-    // 電話番号を保存してフォーム送信
-    localStorage.setItem('exitOfferPhone', phoneInput.value);
-    closeExitPopup();
-    // 実際のフォーム送信処理をここに追加
-  }
-};
-
-window.closeExitPopup = function() {
-  const popup = document.querySelector('.exit-popup');
-  if (popup) {
-    popup.remove();
-  }
-};
 
 // 初期化関数
 export function initFlyerFeatures() {
