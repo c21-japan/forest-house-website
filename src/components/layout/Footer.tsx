@@ -6,57 +6,65 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: '分譲マンション査定', href: '/services/valuation' },
-      { name: '売却サポート', href: '/services/selling' },
-      { name: '買取サービス', href: '/services/purchase' },
-      { name: '相続対策', href: '/services/inheritance' },
+      { name: '無料査定', href: '/services' },
+      { name: '仲介売却', href: '/services' },
+      { name: '相続・住み替えサポート', href: '/services' },
     ],
     company: [
       { name: '会社概要', href: '/about' },
-      { name: '代表者メッセージ', href: '/about/message' },
       { name: '実績・事例', href: '/portfolio' },
-      { name: 'お客様の声', href: '/testimonials' },
-    ],
-    support: [
-      { name: 'よくある質問', href: '/faq' },
       { name: 'お問い合わせ', href: '/contact' },
+    ],
+    legal: [
       { name: 'プライバシーポリシー', href: '/privacy' },
       { name: '利用規約', href: '/terms' },
+      { name: '広告表示・免責事項', href: '/disclosure' },
     ],
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-slate-900 text-white">
+      <div className="container py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* 会社情報 */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-forest-500 rounded-lg flex items-center justify-center">
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex-center">
                 <span className="text-white font-bold text-xl">F</span>
               </div>
               <span className="ml-3 text-xl font-bold">フォレストハウス</span>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed mb-4">
-              分譲マンション売却の専門店として、お客様の大切な資産を適正価格で売却いたします。
+            <p className="text-slate-300 mb-6 leading-relaxed">
+              奈良県・大阪府南部で分譲マンション売却を専門に行う不動産会社です。
+              管理規約・修繕積立金・共用部の評価まで、分譲マンション特有の価値を正しく査定いたします。
             </p>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>〒150-0001</p>
-              <p>東京都渋谷区神宮前1-1-1</p>
-              <p>TEL: 03-1234-5678</p>
-              <p>FAX: 03-1234-5679</p>
+            <div className="space-y-3 text-sm text-slate-300">
+              <div className="flex items-center">
+                <span className="w-4 h-4 mr-2">📍</span>
+                <span>〒639-0265 奈良県香芝市上中2-1</span>
+              </div>
+              <div className="flex items-center">
+                <span className="w-4 h-4 mr-2">📞</span>
+                <a href="tel:0120-949-531" className="hover:text-emerald-400 transition-colors">
+                  0120-949-531
+                </a>
+              </div>
+              <div className="flex items-center">
+                <span className="w-4 h-4 mr-2">🕒</span>
+                <span>9:00〜22:00（年末年始除く）</span>
+              </div>
             </div>
           </div>
 
           {/* サービス */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">サービス</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-6">サービス</h3>
+            <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-forest-400 transition-colors duration-200 text-sm"
+                    className="text-slate-300 hover:text-emerald-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -65,32 +73,28 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 会社情報 */}
+          {/* 会社情報・法的情報 */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">会社情報</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-6">会社情報</h3>
+            <ul className="space-y-3 mb-6">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-forest-400 transition-colors duration-200 text-sm"
+                    className="text-slate-300 hover:text-emerald-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* サポート */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">サポート</h3>
-            <ul className="space-y-2">
-              {footerLinks.support.map((link) => (
+            <h3 className="text-lg font-semibold mb-6">法的情報</h3>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-forest-400 transition-colors duration-200 text-sm"
+                    className="text-slate-300 hover:text-emerald-400 transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </Link>
@@ -100,33 +104,18 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* 営業時間・免許情報 */}
-        <div className="border-t border-gray-700 mt-8 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="font-semibold mb-2">営業時間</h4>
-              <div className="text-sm text-gray-300 space-y-1">
-                <p>平日: 9:00 - 18:00</p>
-                <p>土曜: 9:00 - 17:00</p>
-                <p>日曜・祝日: 休業</p>
-              </div>
+        {/* 免許情報・著作権 */}
+        <div className="border-t border-slate-700 mt-12 pt-8">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-4 lg:space-y-0">
+            <div className="text-sm text-slate-300 space-y-2">
+              <p>宅地建物取引業免許：奈良県知事（2）第4366号</p>
+              <p>所属団体：全日本不動産協会・近畿レインズ</p>
+              <p>個人情報の取り扱い：プライバシーポリシーに基づき適切に管理</p>
             </div>
-            <div>
-              <h4 className="font-semibold mb-2">免許・資格</h4>
-              <div className="text-sm text-gray-300 space-y-1">
-                <p>宅地建物取引業免許</p>
-                <p>東京都知事免許 (1) 123456</p>
-                <p>一般社団法人 不動産流通機構 会員</p>
-              </div>
+            <div className="text-sm text-slate-400">
+              © {currentYear} 株式会社フォレスト. All rights reserved.
             </div>
           </div>
-        </div>
-
-        {/* コピーライト */}
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-sm text-gray-400">
-            © {currentYear} フォレストハウス. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
@@ -134,4 +123,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
