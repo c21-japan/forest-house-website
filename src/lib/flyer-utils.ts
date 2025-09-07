@@ -39,7 +39,7 @@ export function initFlyerCountdown() {
   
   const updateCountdown = () => {
     const now = new Date();
-    const distance = deadline - now;
+    const distance = deadline.getTime() - now.getTime();
     
     if (distance < 0) {
       const banner = document.querySelector('.flyer-banner');
