@@ -3,9 +3,7 @@
 import React, { useState } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { Metadata } from 'next'
 import Link from 'next/link'
-import styles from './portfolio.module.css'
 
 export default function PortfolioPage() {
   const [selectedCase, setSelectedCase] = useState(0)
@@ -308,7 +306,7 @@ export default function PortfolioPage() {
               <div className="card p-6 text-center">
                 <div className="text-2xl mb-4">⭐⭐⭐⭐⭐</div>
                 <blockquote className="text-lg font-semibold text-foreground mb-4">
-                  "査定の根拠が明確で信頼できました"
+                  &ldquo;査定の根拠が明確で信頼できました&rdquo;
                 </blockquote>
                 <p className="text-muted mb-4">
                   他社では「相場です」の一言でしたが、フォレストさんは類似物件の成約事例を詳しく説明してくれました。
@@ -319,7 +317,7 @@ export default function PortfolioPage() {
               <div className="card p-6 text-center">
                 <div className="text-2xl mb-4">⭐⭐⭐⭐⭐</div>
                 <blockquote className="text-lg font-semibold text-foreground mb-4">
-                  "管理組合の評価に驚きました"
+                  &ldquo;管理組合の評価に驚きました&rdquo;
                 </blockquote>
                 <p className="text-muted mb-4">
                   修繕積立金の状況まで詳しく調査し、それを価格に反映してくれたのは初めてでした。
@@ -330,7 +328,7 @@ export default function PortfolioPage() {
               <div className="card p-6 text-center">
                 <div className="text-2xl mb-4">⭐⭐⭐⭐⭐</div>
                 <blockquote className="text-lg font-semibold text-foreground mb-4">
-                  "売却の流れが分かりやすかった"
+                  &ldquo;売却の流れが分かりやすかった&rdquo;
                 </blockquote>
                 <p className="text-muted mb-4">
                   最初に全体スケジュールを説明してもらえたので、不安なく進められました。
@@ -341,7 +339,7 @@ export default function PortfolioPage() {
               <div className="card p-6 text-center">
                 <div className="text-2xl mb-4">⭐⭐⭐⭐⭐</div>
                 <blockquote className="text-lg font-semibold text-foreground mb-4">
-                  "夜遅くまで対応してもらえて助かりました"
+                  &ldquo;夜遅くまで対応してもらえて助かりました&rdquo;
                 </blockquote>
                 <p className="text-muted mb-4">
                   仕事が遅いので22時まで営業しているのは本当に助かりました。

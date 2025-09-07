@@ -84,7 +84,7 @@ export default function TestimonialSlider() {
                       ))}
                     </div>
                     <blockquote className={styles.quote}>
-                      "{testimonial.quote}"
+                      &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>
                     <p className={styles.text}>{testimonial.text}</p>
                     <cite className={styles.author}>{testimonial.author}</cite>

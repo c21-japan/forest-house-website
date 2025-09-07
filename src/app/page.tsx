@@ -5,7 +5,6 @@ import ServiceCards from '@/components/sections/ServiceCards';
 import StatsSection from '@/components/sections/StatsSection';
 import TestimonialSlider from '@/components/sections/TestimonialSlider';
 import AreaAccordion from '@/components/sections/AreaAccordion';
-import FAQSection from '@/components/sections/FAQSection';
 import StructuredData from '@/components/StructuredData';
 
 const structuredData = {

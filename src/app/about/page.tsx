@@ -3,7 +3,6 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Metadata } from 'next'
 import Link from 'next/link'
-import styles from './about.module.css'
 
 export const metadata: Metadata = {
   title: '会社概要｜分譲マンション売却のフォレスト',

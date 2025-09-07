@@ -3,9 +3,7 @@
 import React, { useState } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { Metadata } from 'next'
 import Link from 'next/link'
-import styles from './contact.module.css'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -27,10 +25,11 @@ export default function ContactPage() {
   })
 
   const [step, setStep] = useState(1)
-  const [errors, setErrors] = useState<any>({})
+  const [errors, setErrors] = useState<Record<string, string>>({})
 
-  const handleChange = (e: any) => {
-    const { name, value, type, checked } = e.target
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target
+    const checked = 'checked' in e.target ? e.target.checked : false
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
@@ -38,7 +37,7 @@ export default function ContactPage() {
   }
 
   const validateStep1 = () => {
-    const newErrors: any = {}
+    const newErrors: Record<string, string> = {}
     if (!formData.type) newErrors.type = 'お問い合わせ種別を選択してください'
     if (!formData.name) newErrors.name = 'お名前を入力してください'
     if (!formData.furigana) newErrors.furigana = 'フリガナを入力してください'
