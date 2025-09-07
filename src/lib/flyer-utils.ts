@@ -1,5 +1,13 @@
 // チラシ連動JavaScript機能
 
+// グローバル型拡張
+declare global {
+  interface Window {
+    submitExitOffer: () => void;
+    closeExitPopup: () => void;
+  }
+}
+
 // 型付けの土台
 export type Primitive = string | number | boolean | null | undefined;
 
@@ -222,7 +230,7 @@ function showExitPopup() {
 }
 
 // グローバル関数として定義
-(window as Record<string, unknown>).submitExitOffer = function() {
+window.submitExitOffer = function() {
   const phoneInput = document.querySelector('.exit-popup input[type="tel"]') as HTMLInputElement;
   if (phoneInput && phoneInput.value) {
     // 電話番号を保存してフォーム送信
@@ -232,7 +240,7 @@ function showExitPopup() {
   }
 };
 
-(window as Record<string, unknown>).closeExitPopup = function() {
+window.closeExitPopup = function() {
   const popup = document.querySelector('.exit-popup');
   if (popup) {
     popup.remove();
