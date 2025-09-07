@@ -1,5 +1,36 @@
 // チラシ連動JavaScript機能
 
+// 型付けの土台
+export type Primitive = string | number | boolean | null | undefined;
+
+export type FlyerImage = {
+  url: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+};
+
+export type FlyerBlock =
+  | { type: 'heading'; content: string }
+  | { type: 'paragraph'; content: string }
+  | { type: 'list'; items: string[] }
+  | { type: 'image'; image: FlyerImage };
+
+export type FlyerData = {
+  title?: string;
+  subtitle?: string;
+  blocks?: FlyerBlock[];
+  // 必要に応じて拡張
+};
+
+// type guard サンプル
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return typeof v === 'object' && v !== null;
+}
+function isString(v: unknown): v is string {
+  return typeof v === 'string';
+}
+
 // チラシ配布日からのカウントダウン
 export function initFlyerCountdown() {
   const flyerDate = new Date(localStorage.getItem('flyerDate') || new Date());
@@ -44,7 +75,7 @@ export function showMansionData() {
   const mansionId = urlParams.get('m') || 'default';
   
   // マンション別の実績データ
-  const mansionData: Record<string, any> = {
+  const mansionData: Record<string, unknown> = {
     'parkheim': {
       name: 'パークハイム奈良',
       results: [
@@ -68,19 +99,21 @@ export function showMansionData() {
 }
 
 // マンション実績の更新
-function updateMansionResults(data: any) {
+function updateMansionResults(data: unknown) {
   // 実績データを動的に更新
   const resultCards = document.querySelectorAll('.result-card');
   resultCards.forEach((card, index) => {
-    if (data.results[index]) {
+    if (isRecord(data) && Array.isArray(data.results) && data.results[index]) {
       const result = data.results[index];
-      const roomElement = card.querySelector('.room');
-      const priceElement = card.querySelector('.forest');
-      const profitElement = card.querySelector('.profit');
-      
-      if (roomElement) roomElement.textContent = `${result.room}号室（3LDK）`;
-      if (priceElement) priceElement.textContent = `成約：${result.price}万円`;
-      if (profitElement) profitElement.textContent = `+${result.profit}万円！`;
+      if (isRecord(result)) {
+        const roomElement = card.querySelector('.room');
+        const priceElement = card.querySelector('.forest');
+        const profitElement = card.querySelector('.profit');
+        
+        if (roomElement && isString(result.room)) roomElement.textContent = `${result.room}号室（3LDK）`;
+        if (priceElement && typeof result.price === 'number') priceElement.textContent = `成約：${result.price}万円`;
+        if (profitElement && typeof result.profit === 'number') profitElement.textContent = `+${result.profit}万円！`;
+      }
     }
   });
 }
@@ -189,7 +222,7 @@ function showExitPopup() {
 }
 
 // グローバル関数として定義
-(window as any).submitExitOffer = function() {
+(window as Record<string, unknown>).submitExitOffer = function() {
   const phoneInput = document.querySelector('.exit-popup input[type="tel"]') as HTMLInputElement;
   if (phoneInput && phoneInput.value) {
     // 電話番号を保存してフォーム送信
@@ -199,7 +232,7 @@ function showExitPopup() {
   }
 };
 
-(window as any).closeExitPopup = function() {
+(window as Record<string, unknown>).closeExitPopup = function() {
   const popup = document.querySelector('.exit-popup');
   if (popup) {
     popup.remove();

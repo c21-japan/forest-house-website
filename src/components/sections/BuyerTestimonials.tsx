@@ -27,9 +27,9 @@ const BuyerTestimonials = () => {
             </div>
             <div className="message">
               <p className="quote text-lg text-gray-700 leading-relaxed mb-4">
-                "他社の物件は<strong className="text-red-500">リフォーム代500万円</strong>と言われ諦めていました。
+                &quot;他社の物件は<strong className="text-red-500">リフォーム代500万円</strong>と言われ諦めていました。
                 フォレストハウスさんの物件は<strong className="text-green-500">リフォーム済みで即入居可能</strong>！
-                しかも価格は他社と変わらず。即決しました！"
+                しかも価格は他社と変わらず。即決しました！&quot;
               </p>
             </div>
             <div className="decision-point bg-green-50 rounded-xl p-4 border-l-4 border-green-400">
@@ -49,9 +49,9 @@ const BuyerTestimonials = () => {
             </div>
             <div className="message">
               <p className="quote text-lg text-gray-700 leading-relaxed mb-4">
-                "小さい子供がいるので、<strong className="text-blue-500">すぐに住める家</strong>を探していました。
+                &quot;小さい子供がいるので、<strong className="text-blue-500">すぐに住める家</strong>を探していました。
                 水回りが新品で、壁紙も張り替え済み。
-                <strong className="text-green-500">新築みたいなのに中古価格</strong>で最高です！"
+                <strong className="text-green-500">新築みたいなのに中古価格</strong>で最高です！&quot;
               </p>
             </div>
             <div className="decision-point bg-blue-50 rounded-xl p-4 border-l-4 border-blue-400">
